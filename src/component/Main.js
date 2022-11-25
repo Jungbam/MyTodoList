@@ -1,24 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Article from './Article'
 const Main = () => {
   const [workingArray, setWorkingArray] = useState([])
-  const [doArray, setDoArray] = useState([])
-  const [doneArray, setDoneArray] = useState([])
   const [cnt, setCnt] = useState(0)
 
-  // const [input, setInput] = useState({title: "", content: ""})
+  const doArray = workingArray.filter((el) => el.idDone === true)
+  const doneArray = workingArray.filter((el) => el.idDone === false)
 
+  // const [doArray, setDoArray] = useState([])
+  // const [doneArray, setDoneArray] = useState([])
+
+  // const [input, setInput] = useState({title: "", content: ""})
   // const handleInput = (e)=>{
   //   const {name, value} = e.target
   //   setInput((prev)=>{
   //     return {...prev, [name]:value }
   //   })
   // }
-  useEffect(() => {
-    console.log(workingArray)
-    setDoArray(workingArray.filter((el) => el.idDone === true))
-    setDoneArray(workingArray.filter((el) => el.idDone === false))
-  }, [workingArray])
+
+  // useEffect(() => {
+  //   setDoArray(workingArray.filter((el) => el.idDone === true))
+  //   setDoneArray(workingArray.filter((el) => el.idDone === false))
+  // }, [workingArray])
 
   const onClickHander = (e) => {
     e.preventDefault()
