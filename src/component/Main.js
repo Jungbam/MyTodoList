@@ -1,27 +1,12 @@
 import React, { useState } from 'react'
 import Article from './Article'
+
 const Main = () => {
   const [workingArray, setWorkingArray] = useState([])
   const [cnt, setCnt] = useState(0)
 
   const doArray = workingArray.filter((el) => el.idDone === true)
   const doneArray = workingArray.filter((el) => el.idDone === false)
-
-  // const [doArray, setDoArray] = useState([])
-  // const [doneArray, setDoneArray] = useState([])
-
-  // const [input, setInput] = useState({title: "", content: ""})
-  // const handleInput = (e)=>{
-  //   const {name, value} = e.target
-  //   setInput((prev)=>{
-  //     return {...prev, [name]:value }
-  //   })
-  // }
-
-  // useEffect(() => {
-  //   setDoArray(workingArray.filter((el) => el.idDone === true))
-  //   setDoneArray(workingArray.filter((el) => el.idDone === false))
-  // }, [workingArray])
 
   const onClickHander = (e) => {
     e.preventDefault()
@@ -66,13 +51,15 @@ const Main = () => {
   }
 
   return (
-    <main>
-      <section className="mainDiv">
-        <form action="#" method="#">
-          <label htmlFor="title">제목</label>
-          <input type="text" id="title" required></input>
-          <label htmlFor="content">내용</label>
-          <input type="text" id="content" required></input>
+    <main className="mainDiv">
+      <section className="input-section">
+        <form action="#" method="#" className="form-continer">
+          <div className="input-box">
+            <label htmlFor="title">제목</label>
+            <input type="text" id="title" required></input>
+            <label htmlFor="content">내용</label>
+            <input type="text" id="content" required></input>
+          </div>
           <button type="submit" onClick={onClickHander}>
             추가하기
           </button>

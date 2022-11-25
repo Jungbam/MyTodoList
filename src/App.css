@@ -1,11 +1,21 @@
+@font-face {
+  font-family: 'ImcreSoojin';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'ImcreSoojin';
 }
 body {
   position: relative;
+  background-color: whitesmoke;
 }
+/*header*/
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -14,16 +24,106 @@ body {
   width: 100vw;
   height: 60px;
   background-color: rgba(140, 140, 140, 0.9);
+  align-items: center;
 }
+.header-box {
+  width: 80vw;
+  max-width: 1200px;
+  min-width: 800px;
+  margin: 0 auto;
+}
+/*main*/
 .mainDiv {
-  padding-top: 60px;
+  width: 80vw;
+  max-width: 1200px;
+  min-width: 800px;
+  margin: 0 auto;
+  padding: 5px;
+  padding-top: 65px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 1px 1px 3px black;
+}
+.article-title {
+  color: blue;
+}
+/*input Section*/
+.input-section {
+  padding: 2px;
+  border-radius: 6px;
+  background-color: #333;
+  color: white;
+  padding: 5px;
+}
+.form-continer {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+}
+.input-box {
+  display: flex;
+  width: 60%;
+  justify-content: space-around;
+  align-items: center;
+}
+.input-box input {
+  padding: 1px;
+  margin-left: 5px;
+}
+/*article*/
+.article-container {
+  margin: 5px;
+  height: 40vh;
+}
+.card-container {
+  height: 90%;
+  margin-top: 5px;
+  margin-left: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: hidden;
+  background-color: #333;
+  border-radius: 12px;
+  box-shadow: 1px 1px 3px black;
 }
 /* ToDoCard */
 .todo-card {
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
   border-radius: 12px;
+  padding: 5px;
+  background-color: whitesmoke;
+  margin: 3px;
   width: 200px;
+  height: 80%;
   box-shadow: 1px 1px 3px green;
+}
+.todo-card h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.todo-content {
+  height: 60%;
+  border: 1px solid black;
+  padding: 2px;
+}
+.button-box {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+.button-box button {
+  width: 30%;
+}
+/*footer*/
+.footer {
+  display: flex;
+  background-color: black;
+  color: white;
+  height: 100px;
+  justify-content: center;
+  padding-top: 10px;
+  margin-top: 10px;
 }

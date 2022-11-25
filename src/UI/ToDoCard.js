@@ -5,8 +5,8 @@ const ToDoCard = ({ el, deleteHandler, doneHandler }) => {
   return (
     <div id={id} className="todo-card">
       <h1>{title}</h1>
-      <p>{content}</p>
-      <div>
+      <p className="todo-content">{content}</p>
+      <div className="button-box">
         <button onClick={deleteHandler}>삭제</button>
         <button onClick={doneHandler}>{idDone ? '완료' : '취소'}</button>
       </div>

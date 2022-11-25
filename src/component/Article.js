@@ -2,9 +2,9 @@ import React from 'react'
 import ToDoCard from '../UI/ToDoCard'
 const Article = ({ title, array, deleteHandler, doneHandler }) => {
   return (
-    <div className="">
-      <h2>{title}</h2>
-      <div>
+    <div className="article-container">
+      <h2 className="article-title">{title}</h2>
+      <div className="card-container">
         {array.map((el, i) => {
           return (
             <ToDoCard
