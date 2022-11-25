@@ -15,6 +15,7 @@ const Main = () => {
   //   })
   // }
   useEffect(() => {
+    console.log(workingArray)
     setDoArray(workingArray.filter((el) => el.idDone === true))
     setDoneArray(workingArray.filter((el) => el.idDone === false))
   }, [workingArray])
@@ -23,6 +24,10 @@ const Main = () => {
     e.preventDefault()
     const titleInput = document.getElementById('title').value
     const contentInput = document.getElementById('content').value
+    if (!titleInput.length || !contentInput.length) {
+      alert('값을 입력하세요.')
+      return
+    }
     const doc = {
       id: cnt,
       title: titleInput,
@@ -60,12 +65,12 @@ const Main = () => {
   return (
     <main>
       <section className="mainDiv">
-        <form>
+        <form action="#" method="#">
           <label htmlFor="title">제목</label>
-          <input type="text" id="title"></input>
+          <input type="text" id="title" required></input>
           <label htmlFor="content">내용</label>
-          <input type="text" id="conten t"></input>
-          <button type="button" onClick={onClickHander}>
+          <input type="text" id="content" required></input>
+          <button type="submit" onClick={onClickHander}>
             추가하기
           </button>
         </form>
