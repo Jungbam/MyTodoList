@@ -24,6 +24,8 @@ const Main = () => {
     }
     setCnt(cnt + 1)
     setWorkingArray([...workingArray, doc])
+    document.getElementById('title').value = ''
+    document.getElementById('content').value = ''
   }
 
   const deleteHandler = (e) => {
