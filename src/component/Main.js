@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Article from './Article'
+import { v4 as uuidv4 } from 'uuid'
 const Main = () => {
-  console.log(JSON.parse(localStorage.getItem('todolist')))
   const [workingArray, setWorkingArray] = useState([])
-  const [cnt, setCnt] = useState(0)
 
   const doArray = workingArray.filter((el) => el.idDone === true)
   const doneArray = workingArray.filter((el) => el.idDone === false)
@@ -27,12 +26,11 @@ const Main = () => {
       return
     }
     const doc = {
-      id: cnt,
+      id: uuidv4(),
       title: titleInput,
       content: contentInput,
       idDone: true,
     }
-    setCnt(cnt + 1)
     setWorkingArray([...workingArray, doc])
     document.getElementById('title').value = ''
     document.getElementById('content').value = ''
@@ -42,7 +40,7 @@ const Main = () => {
     e.preventDefault()
     const id = e.target.parentNode.parentNode.id
     const clone = workingArray.filter((el) => {
-      return el.id !== +id
+      return el.id !== id
     })
     setWorkingArray([...clone])
   }
@@ -50,14 +48,14 @@ const Main = () => {
   const doneHandler = (e) => {
     e.preventDefault()
     const id = e.target.parentNode.parentNode.id
-    console.log(id)
     const select = workingArray.filter((el) => {
-      return el.id === +id
+      return el.id === id
     })
     const selectedDone = select[0]['idDone']
     select[0]['idDone'] = !selectedDone
     const clone = workingArray.filter((el) => {
-      return el.id !== +id
+      console.log(el.id)
+      return el.id !== id
     })
     setWorkingArray([...clone, ...select])
   }

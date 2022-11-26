@@ -1,6 +1,5 @@
 import React from 'react'
 const ToDoCard = ({ el, deleteHandler, doneHandler }) => {
-  // console.log(el)
   const { id, title, content, idDone } = el
   return (
     <div id={id} className="todo-card">
