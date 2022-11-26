@@ -5,8 +5,8 @@ import { HandlerContext } from '../context/HandlerContext'
 const Main = () => {
   const [workingArray, setWorkingArray] = useState([])
 
-  const doArray = workingArray.filter((el) => el.idDone === true)
-  const doneArray = workingArray.filter((el) => el.idDone === false)
+  // const doArray = workingArray.filter((el) => el.idDone === true)
+  // const doneArray = workingArray.filter((el) => el.idDone === false)
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem('todolist'))) {
@@ -66,7 +66,7 @@ const Main = () => {
     setWorkingArray([])
   }
   return (
-    <HandlerContext.Provider value={{ doneHandler, deleteHandler }}>
+    <HandlerContext.Provider value={{ workingArray, doneHandler, deleteHandler }}>
       <main className="mainDiv">
         <section className="input-section">
           <form action="#" method="#" className="form-continer">
@@ -84,8 +84,10 @@ const Main = () => {
             </button>
           </form>
         </section>
-        <Article title="Working..." array={doArray} />
-        <Article title="Done!!" array={doneArray} />
+        <Article title="Working..." />
+         {/* array={doArray} */}
+        <Article title="Done!!"  />
+        {/* array={doneArray} */}
       </main>
     </HandlerContext.Provider>
   )
