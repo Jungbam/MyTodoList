@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Article from './Article'
 const Main = () => {
+  console.log(JSON.parse(localStorage.getItem('todolist')))
   const [workingArray, setWorkingArray] = useState([])
   const [cnt, setCnt] = useState(0)
 
   const doArray = workingArray.filter((el) => el.idDone === true)
   const doneArray = workingArray.filter((el) => el.idDone === false)
+
   useEffect(() => {
-    const array = JSON.parse(localStorage.getItem('todolist'))
-    setWorkingArray([...array])
+    if (JSON.parse(localStorage.getItem('todolist'))) {
+      const array = JSON.parse(localStorage.getItem('todolist'))
+      setWorkingArray([...array])
+    }
   }, [])
   useEffect(() => {
     localStorage.setItem('todolist', JSON.stringify(workingArray))
@@ -57,7 +61,11 @@ const Main = () => {
     })
     setWorkingArray([...clone, ...select])
   }
-
+  const onFormatHandler = (e) => {
+    e.preventDefault()
+    localStorage.removeItem('todolist')
+    setWorkingArray([])
+  }
   return (
     <main className="mainDiv">
       <section className="input-section">
@@ -70,6 +78,9 @@ const Main = () => {
           </div>
           <button type="submit" onClick={onClickHander}>
             추가하기
+          </button>
+          <button type="submit" onClick={onFormatHandler}>
+            초기화
           </button>
         </form>
       </section>
