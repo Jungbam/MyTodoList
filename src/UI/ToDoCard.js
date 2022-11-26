@@ -1,6 +1,9 @@
-import React from 'react'
-const ToDoCard = ({ el, deleteHandler, doneHandler }) => {
+import React, { useContext } from 'react'
+import { HandlerContext } from '../context/HandlerContext'
+const ToDoCard = ({ el }) => {
   const { id, title, content, idDone } = el
+  const { deleteHandler, doneHandler } = useContext(HandlerContext)
+
   return (
     <div id={id} className="todo-card">
       <h1>{title}</h1>
