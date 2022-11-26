@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { HandlerContext } from '../context/HandlerContext'
 import ToDoCard from '../UI/ToDoCard'
-const Article = ({ title, array }) => {
+const Article = ({ title }) => {
     const { workingArray } = useContext(HandlerContext)
 
 
