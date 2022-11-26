@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Article from './Article'
-
 const Main = () => {
   const [workingArray, setWorkingArray] = useState([])
   const [cnt, setCnt] = useState(0)
 
   const doArray = workingArray.filter((el) => el.idDone === true)
   const doneArray = workingArray.filter((el) => el.idDone === false)
+  useEffect(() => {
+    const array = JSON.parse(localStorage.getItem('todolist'))
+    setWorkingArray([...array])
+  }, [])
+  useEffect(() => {
+    localStorage.setItem('todolist', JSON.stringify(workingArray))
+  }, [workingArray])
 
   const onClickHander = (e) => {
     e.preventDefault()
