@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Article from './Article'
-import { v4 as uuidv4 } from 'uuid'
+import { HandlerContext } from '../context/HandlerContext'
+
 const Main = () => {
   const [workingArray, setWorkingArray] = useState([])
 
@@ -26,7 +27,7 @@ const Main = () => {
       return
     }
     const doc = {
-      id: uuidv4(),
+      id: workingArray.length,
       title: titleInput,
       content: contentInput,
       idDone: true,
@@ -40,7 +41,7 @@ const Main = () => {
     e.preventDefault()
     const id = e.target.parentNode.parentNode.id
     const clone = workingArray.filter((el) => {
-      return el.id !== id
+      return el.id !== +id
     })
     setWorkingArray([...clone])
   }
@@ -49,13 +50,13 @@ const Main = () => {
     e.preventDefault()
     const id = e.target.parentNode.parentNode.id
     const select = workingArray.filter((el) => {
-      return el.id === id
+      return el.id === +id
     })
     const selectedDone = select[0]['idDone']
     select[0]['idDone'] = !selectedDone
     const clone = workingArray.filter((el) => {
       console.log(el.id)
-      return el.id !== id
+      return el.id !== +id
     })
     setWorkingArray([...clone, ...select])
   }
@@ -65,36 +66,28 @@ const Main = () => {
     setWorkingArray([])
   }
   return (
-    <main className="mainDiv">
-      <section className="input-section">
-        <form action="#" method="#" className="form-continer">
-          <div className="input-box">
-            <label htmlFor="title">제목</label>
-            <input type="text" id="title" required></input>
-            <label htmlFor="content">내용</label>
-            <input type="text" id="content" required></input>
-          </div>
-          <button type="submit" onClick={onClickHander}>
-            추가하기
-          </button>
-          <button type="submit" onClick={onFormatHandler}>
-            초기화
-          </button>
-        </form>
-      </section>
-      <Article
-        title="Working..."
-        array={doArray}
-        deleteHandler={deleteHandler}
-        doneHandler={doneHandler}
-      />
-      <Article
-        title="Done!!"
-        array={doneArray}
-        deleteHandler={deleteHandler}
-        doneHandler={doneHandler}
-      />
-    </main>
+    <HandlerContext.Provider value={{ doneHandler, deleteHandler }}>
+      <main className="mainDiv">
+        <section className="input-section">
+          <form action="#" method="#" className="form-continer">
+            <div className="input-box">
+              <label htmlFor="title">제목</label>
+              <input type="text" id="title" required></input>
+              <label htmlFor="content">내용</label>
+              <input type="text" id="content" required></input>
+            </div>
+            <button type="submit" onClick={onClickHander}>
+              추가하기
+            </button>
+            <button type="submit" onClick={onFormatHandler}>
+              초기화
+            </button>
+          </form>
+        </section>
+        <Article title="Working..." array={doArray} />
+        <Article title="Done!!" array={doneArray} />
+      </main>
+    </HandlerContext.Provider>
   )
 }
 export default Main
