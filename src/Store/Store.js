@@ -3,7 +3,7 @@ import { createStore } from "redux";
 const reducer = (current, action)=>{
   if(current === undefined){
     return{
-      isDark : false
+      isDark : true
     }
   }
   switch(action.type){
