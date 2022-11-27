@@ -9,7 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'ImcreSoojin';
+
 }
 body {
   position: relative;
@@ -23,10 +23,17 @@ body {
   position: fixed;
   width: 100vw;
   height: 60px;
-  background-color: rgba(140, 140, 140, 0.9);
+  background-color: black;
+  color: white;
   align-items: center;
+    font-family: 'ImcreSoojin';
+}
+button{
+    font-family: 'ImcreSoojin';
 }
 .header-box {
+  display: flex;
+  justify-content: space-between;
   width: 80vw;
   max-width: 1200px;
   min-width: 800px;
@@ -39,20 +46,17 @@ body {
   min-width: 800px;
   margin: 0 auto;
   padding: 5px;
-  padding-top: 65px;
-  background-color: white;
+  padding-top: 60px;
+  background-color: #111;
   border-radius: 12px;
   box-shadow: 1px 1px 3px black;
 }
-.article-title {
-  color: blue;
-}
+
 /*input Section*/
 .input-section {
   padding: 2px;
-  border-radius: 6px;
-  background-color: #333;
-  color: white;
+  background-color: #111;
+  color: balck;
   padding: 5px;
 }
 .form-continer {
@@ -80,13 +84,45 @@ body {
   height: 90%;
   margin-top: 5px;
   margin-left: 5px;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   overflow-x: hidden;
-  background-color: #eee;
+  background:linear-gradient(45deg, black, #333);
+  border-radius: 12px;
+  box-shadow: 1px 1px 3px white;
+}
+.white-card-container {
+  height: 90%;
+  margin-top: 5px;
+  margin-left: 5px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: hidden;
+  background:linear-gradient(45deg, white, #333);
   border-radius: 12px;
   box-shadow: 1px 1px 3px black;
+}
+.article-title {
+  position: absolute;
+  margin: 5px;
+  color: white;
+  left: 5px;
+}
+.white-article-title {
+  position: absolute;
+  margin: 5px;
+  color: black;
+  left: 5px;
+}
+.doneBtn{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  z-index: 100;
 }
 /* ToDoCard */
 .todo-card {
@@ -98,7 +134,7 @@ body {
   margin: 3px;
   width: 200px;
   height: 80%;
-  box-shadow: 1px 1px 3px green;
+  box-shadow: 1px 1px 6px white;
 }
 .todo-card h1 {
   text-align: center;
@@ -116,6 +152,28 @@ body {
 }
 .button-box button {
   width: 30%;
+}
+.black-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  margin: 3px;
+  width: 200px;
+  height: 80%;
+  box-shadow: 3px 3px 6px white;
+}
+.black-card h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.black-card-content {
+  height: 60%;
+  background-color: #333;
+  border: 1px solid white;
+  padding: 2px;
 }
 /*footer*/
 .footer {
