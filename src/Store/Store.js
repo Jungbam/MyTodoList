@@ -3,7 +3,8 @@ import { createStore } from "redux";
 const reducer = (current, action)=>{
   if(current === undefined){
     return{
-      isDark : true
+      isDark : true,
+      isOpen : true
     }
   }
   switch(action.type){
@@ -11,10 +12,13 @@ const reducer = (current, action)=>{
       return {...current, 'isDark':true}
     case 'white':
       return {...current, 'isDark':false}
+    case 'open' :
+      return{...current, 'isOpen' : false}
+    case 'close' :
+      return{...current, 'isOpen' : true}
     default :
       return {...current}
   }
-
 }
 
 export const Store = createStore(reducer)
