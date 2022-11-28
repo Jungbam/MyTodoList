@@ -53,7 +53,6 @@ const Main = () => {
     const selectedDone = select[0]['idDone']
     select[0]['idDone'] = !selectedDone
     const clone = workingArray.filter((el) => {
-      console.log(el.id)
       return el.id !== id
     })
     setWorkingArray([...clone, ...select])
@@ -83,7 +82,7 @@ const Main = () => {
           </form>
         </section>
         <Article title="Working..." />
-        <Article title="Done!!"  />
+        <Article title="Done!!"   />
       </main>
     </HandlerContext.Provider>
   )

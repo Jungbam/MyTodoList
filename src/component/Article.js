@@ -17,9 +17,9 @@ const Article = ({ title }) => {
       <div className={isDark? "card-container":'white-card-container'}>
       <h2 className={isDark? "article-title":'white-article-title'}>{title}</h2>
         {title==='Working...'?workingArray.filter((el) => el.idDone === true).map((el, i) => {
-          return <ToDoCard key={i} el={el} />
+          return <ToDoCard key={`dolist +${i}`} el={el} />
         }): workingArray.filter((el) => el.idDone === false).map((el, i) => {
-          return <ToDoCard key={i} el={el} />
+          return <ToDoCard key={`donelist +${i}`} el={el} />
         })}
       {title==='Working...'?<button className='doneBtn' onClick={onClickHandler}>완료한 일 확인</button>:<></>}
       </div>
@@ -27,5 +27,3 @@ const Article = ({ title }) => {
   )
 }
 export default Article
-
-// key값에 인덱스보다 그 요소만의 값을. // `array +${i}`
