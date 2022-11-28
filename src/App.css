@@ -80,6 +80,11 @@ button{
   margin: 5px;
   height: 40vh;
 }
+.disableed-article-container{
+  margin: 5px;
+  height: 40vh;
+  display: none;
+}
 .card-container {
   height: 90%;
   margin-top: 5px;
