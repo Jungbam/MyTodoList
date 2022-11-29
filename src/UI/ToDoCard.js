@@ -6,6 +6,7 @@ const ToDoCard = ({ el }) => {
   const { id, title, content, idDone } = el
   const { deleteHandler, doneHandler } = useContext(HandlerContext)
   const isDark = useSelector((state)=>state.isDark)  
+  
   return (
     <div id={id} className={isDark? "todo-card":'black-card'}>
       <h1>{title}</h1>
