@@ -3,9 +3,14 @@ import Article from './Article'
 import { HandlerContext } from '../context/HandlerContext'
 import { v4 as uuidv4 } from 'uuid' 
 
-const Main = () => {
-  const [workingArray, setWorkingArray] = useState([])
+const getLoacal =()=>{
+  const local = JSON.parse(localStorage.getItem('todolist'))
+  return local
+}
 
+const Main = () => {  
+  const [workingArray, setWorkingArray] = useState(getLoacal)
+  console.log(workingArray) 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem('todolist'))) {
       const array = JSON.parse(localStorage.getItem('todolist'))
