@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Article from './Article'
 import { HandlerContext } from '../context/HandlerContext'
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid' 
 
-const Main = () => {
-  const [workingArray, setWorkingArray] = useState([])
+const getLoacal =()=>{
+  const local = JSON.parse(localStorage.getItem('todolist'))
+  return local
+}
 
+const Main = () => {  
+  const [workingArray, setWorkingArray] = useState(getLoacal)
+  console.log(workingArray) 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem('todolist'))) {
       const array = JSON.parse(localStorage.getItem('todolist'))
@@ -53,7 +58,6 @@ const Main = () => {
     const selectedDone = select[0]['idDone']
     select[0]['idDone'] = !selectedDone
     const clone = workingArray.filter((el) => {
-      console.log(el.id)
       return el.id !== id
     })
     setWorkingArray([...clone, ...select])
@@ -83,7 +87,7 @@ const Main = () => {
           </form>
         </section>
         <Article title="Working..." />
-        <Article title="Done!!"  />
+        <Article title="Done!!"   />
       </main>
     </HandlerContext.Provider>
   )
