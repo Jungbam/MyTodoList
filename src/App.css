@@ -75,6 +75,10 @@ button{
   padding: 1px;
   margin-left: 5px;
 }
+.input-box label{
+  color: white;
+  font-weight: 1000;
+}
 /*article*/
 .article-container {
   margin: 5px;
